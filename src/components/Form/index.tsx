@@ -1,15 +1,9 @@
 import { useState } from "react";
-import {
-  Stepper,
-  Step,
-  StepLabel,
-  Paper,
-  Grid,
-  Container,
-} from "@mui/material";
+import { Stepper, Step, StepLabel, Paper, Container } from "@mui/material";
 import AddressForm from "./AddressForm";
 import PersonalDetailsForm from "./PersonalForm";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import CompleteScreen from "./CompleteScreen";
 
 const steps = ["Personal Details", "Address"];
 
@@ -18,16 +12,22 @@ const StepperForm = () => {
   const [activeStep, setActiveStep] = useState(pageIndex);
   console.log(pageIndex);
   return (
-    <Container>
+    <Container style={{ position: "absolute", top: "0", left: "5%" }}>
       <Paper elevation={3} style={{ padding: "30px", marginTop: "30px" }}>
-        <Stepper activeStep={activeStep} alternativeLabel>
+        <Stepper activeStep={pageIndex} alternativeLabel>
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
             </Step>
           ))}
         </Stepper>
-        {pageIndex === 0 ? <PersonalDetailsForm /> : <AddressForm />}
+        {pageIndex === 0 ? (
+          <PersonalDetailsForm />
+        ) : pageIndex === 1 ? (
+          <AddressForm />
+        ) : (
+          <CompleteScreen />
+        )}
       </Paper>
     </Container>
   );

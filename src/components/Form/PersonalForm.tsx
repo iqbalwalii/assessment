@@ -10,7 +10,7 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import { personalValidationSchema } from "./validationSchema";
 import { useDispatch } from "react-redux";
-import { setPageIndex } from "../../store/userSlice";
+import { setPageIndex, setPersonalDetails } from "../../store/userSlice";
 
 const PersonalDetailsForm = () => {
   const {
@@ -26,6 +26,7 @@ const PersonalDetailsForm = () => {
     console.log(data);
     if (data) {
       dispatch(setPageIndex(1));
+      dispatch(setPersonalDetails(data));
     }
   };
 

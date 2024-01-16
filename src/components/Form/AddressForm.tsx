@@ -4,7 +4,8 @@ import { TextField, Button, Autocomplete } from "@mui/material";
 import axios from "axios";
 import { addressValidationSchema } from "./validationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import { setAddressDetails, setPageIndex } from "../../store/userSlice";
+import { useDispatch } from "react-redux";
 const AddressForm = () => {
   const {
     handleSubmit,
@@ -15,10 +16,15 @@ const AddressForm = () => {
   } = useForm({
     resolver: yupResolver(addressValidationSchema),
   });
-
+  const dispatch = useDispatch();
   const [countryOptions, setCountryOptions] = useState([]);
 
-  const onSubmit = (data: any) => {};
+  const onSubmit = (data: any) => {
+    if (data) {
+      dispatch(setAddressDetails(data));
+      dispatch(setPageIndex(2));
+    }
+  };
   const handleCountryChange = async (value: any) => {
     setValue("Country", value);
   };
