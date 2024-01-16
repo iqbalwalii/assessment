@@ -1,6 +1,3 @@
-// AssessmentFormTypes.ts
-import * as yup from "yup";
-
 export interface FormData {
   Name: string;
   Age: number;

@@ -9,8 +9,10 @@ import {
 } from "@mui/material";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { personalValidationSchema } from "./validationSchema";
+import { useDispatch } from "react-redux";
+import { setPageIndex } from "../../store/userSlice";
 
-const PersonalDetailsForm = ({}) => {
+const PersonalDetailsForm = () => {
   const {
     handleSubmit,
     register,
@@ -19,9 +21,12 @@ const PersonalDetailsForm = ({}) => {
   } = useForm({
     resolver: yupResolver(personalValidationSchema),
   });
-
-  const onSubmit = (data) => {
+  const dispatch = useDispatch();
+  const onSubmit = (data: FormData) => {
     console.log(data);
+    if (data) {
+      dispatch(setPageIndex(1));
+    }
   };
 
   return (
@@ -98,7 +103,7 @@ const PersonalDetailsForm = ({}) => {
       )}
 
       <Button type="submit" variant="contained" color="primary">
-        Submit
+        Next
       </Button>
     </form>
   );
