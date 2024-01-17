@@ -1,4 +1,4 @@
-import { GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import { GridColDef } from "@mui/x-data-grid";
 
 export const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 70 },
@@ -13,5 +13,5 @@ export const columns: GridColDef[] = [
   { field: "Country", headerName: "Country", width: 170 },
   { field: "State", headerName: "State", width: 110 },
   { field: "City", headerName: "City", width: 100 },
-  { field: "Pin", headerName: "Pin", width: 100 },
+  { field: "Pincode", headerName: "Pincode", width: 100 },
 ];

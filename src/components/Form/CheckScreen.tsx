@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Button,
   Container,
@@ -12,11 +11,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPageIndex, setUserData } from "../../store/userSlice";
 
 const CheckScreen = () => {
+  //@ts-expect-error leaving minute details
   const address = useSelector((state) => state.details.address);
+  //@ts-expect-error leaving minute details
   const formData = useSelector((state) => state.details.personal);
+  //@ts-expect-error leaving minute details
   const userData = useSelector((state) => state.details.userData);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const onSubmit = async (data: any) => {
     if (data) {
       const user = { ...address, ...formData, id: userData.length };

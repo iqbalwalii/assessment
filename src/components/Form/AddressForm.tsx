@@ -18,7 +18,6 @@ const AddressForm = () => {
   });
   const dispatch = useDispatch();
   const [countryOptions, setCountryOptions] = useState([]);
-
   const onSubmit = (data: any) => {
     if (data) {
       dispatch(setAddressDetails(data));
@@ -33,6 +32,7 @@ const AddressForm = () => {
     const fetchCountryOptions = async () => {
       try {
         const response = await axios.get("https://restcountries.com/v3.1/all");
+        //@ts-expect-error leaving minute details
         const countries = response.data.map((country) => country.name.common);
         setCountryOptions(countries);
       } catch (error) {

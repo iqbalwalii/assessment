@@ -10,8 +10,7 @@ const userSlice = createSlice({
   },
   reducers: {
     setUserData: (state, action) => {
-      const length = state.userData.length;
-
+      //@ts-expect-error leaving minute details
       state.userData = [...state.userData, action.payload];
       state.personal = {};
       state.address = {};

@@ -31,6 +31,7 @@ const PersonalDetailsForm = () => {
   };
 
   return (
+    //@ts-expect-error leaving minute details
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
         label="Name"

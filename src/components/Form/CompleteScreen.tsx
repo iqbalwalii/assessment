@@ -1,7 +1,6 @@
 import { Typography, Container, Button } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { setPageIndex, setUserData } from "../../store/userSlice";
-import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setPageIndex } from "../../store/userSlice";
 
 const CompleteScreen = () => {
   const dispatch = useDispatch();

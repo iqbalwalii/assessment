@@ -14,3 +14,12 @@ export interface Addresses {
   City: string;
   Pincode: string;
 }
+
+export interface RootState {
+  details: {
+    personal: FormData;
+    address: Addresses;
+    userData: Array<FormData>;
+    pageIndex: number;
+  };
+}

@@ -5,12 +5,12 @@ import { useSelector } from "react-redux";
 import CompleteScreen from "./CompleteScreen";
 import DataTable from "../Datable";
 import CheckScreen from "./CheckScreen";
+import { RootState } from "./types";
 
 const steps = ["Personal Details", "Address", "Check", "Done"];
 
 const StepperForm = () => {
-  const pageIndex = useSelector((state: any) => state.details.pageIndex);
-  console.log(pageIndex);
+  const pageIndex = useSelector((state: RootState) => state.details.pageIndex);
   return (
     <Container style={{ position: "absolute", top: "0", left: "5%" }}>
       <Paper elevation={3} style={{ padding: "30px", marginTop: "30px" }}>
