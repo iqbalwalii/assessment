@@ -6,3 +6,11 @@ export interface FormData {
   GovtIssuedIDType?: string;
   GovtIssuedID?: string;
 }
+
+export interface Addresses {
+  Address: string;
+  Country: string;
+  State: string;
+  City: string;
+  Pincode: string;
+}

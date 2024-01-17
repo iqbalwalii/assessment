@@ -5,12 +5,7 @@ import { useEffect } from "react";
 
 const CompleteScreen = () => {
   const dispatch = useDispatch();
-  const address = useSelector((state) => state.details.address);
-  const formData = useSelector((state) => state.details.personal);
-  useEffect(() => {
-    const user = { ...address, ...formData };
-    dispatch(setUserData(user));
-  }, []);
+
   const onClickHandler = () => {
     dispatch(setPageIndex(0));
   };

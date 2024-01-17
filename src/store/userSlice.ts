@@ -10,6 +10,8 @@ const userSlice = createSlice({
   },
   reducers: {
     setUserData: (state, action) => {
+      const length = state.userData.length;
+
       state.userData = [...state.userData, action.payload];
       state.personal = {};
       state.address = {};
